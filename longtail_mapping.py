@@ -86,8 +86,7 @@ with torch.no_grad():
 # --- 5. Save results ---
 print(f"Saving results to {output_file}...")
 with open(output_file, 'w') as f:
-    f.write(f"# MMLU questions long-tail values\n")
-    f.write(f"# Computation time: 2026-05-04 16:24:25\n")
+    f.write(f"# Long-tail values\n")
     f.write(f"# Total questions: {len(questions)}\n")
     f.write(f"# Mean vector source: {mean_vector_path}\n")
     f.write(f"# Format: Question\t| Long-tail value\n")
@@ -98,6 +97,3 @@ with open(output_file, 'w') as f:
         f.write(f"{q_clean}\t| {a_val:.6f}\n")
 
 print(f"Done! A total of {len(questions)} questions were processed")
-print(f"Long-tail value range: {min(a_values):.4f} ~ {max(a_values):.4f}")
-print(f"Long-tail value mean: {np.mean(a_values):.4f}")
-print(f"Long-tail value median: {np.median(a_values):.4f}")
