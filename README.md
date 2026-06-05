@@ -1,8 +1,18 @@
 # EVT-Rank: Extreme-Value Tail Weighting fo Long-Tail Retrieval-Augmented Generation
+EVT-Rank is a method of reranking RAG documents based on the mathematical and physical model of extreme value theory. Compared with the method of sorting documents using LLM, EVT-Rank has lower reordering delay, and can be deployed on the CPU side to avoid possible video memory overflow on GPU side with limited video memory, and has better deployability.
 
 ## Setup
 
 ### Requirements
+EVT-Rank is developed based on the Python platform. The following table lists the environment configuration required by EVT Rank.
+
+| Lib | Version |
+| :--------: | :------: |
+| PyTorch   | 2.10.0+cu12.8 |
+| Transformers | 5.6.2 |
+| Pandas	 | 2.3.3 |
+| SciPy	 | 1.15.3 |
+| NumPy	 | 2.2.6 |
 
 ## Datasets
 The experiment used the data set of MIRAGE medical RAG benchmark, including 7663 questions from 5 medical QA data sets. MIRAGE is specifically used to evaluate the RAG system, including three medical examination QA data sets (MMLU-Med, MedQAUS, MedMCQA), and two biomedical research QA data sets (PubMedQA*, BioASQ-Y/N). The data set can be obtained at the following website: https://github.com/gzxiong/MIRAGE/tree/main.
