@@ -1,5 +1,5 @@
 # EVT-Rank: Extreme-Value Tail Weighting fo Long-Tail Retrieval-Augmented Generation
-EVT-Rank is a method of reranking RAG documents based on the mathematical and physical model of extreme value theory. Compared with the method of sorting documents using LLM, EVT-Rank has lower reordering delay, and can be deployed on the CPU side to avoid possible video memory overflow on GPU side with limited video memory, and has better deployability.
+EVT-Rank is a method of reranking RAG documents based on extreme value theory. Compared with the method of sorting documents using LLM, EVT-Rank has lower reordering delay, and can be deployed on the CPU side to avoid potential memory overflow on GPU.
 
 ## Setup
 
@@ -31,7 +31,7 @@ Qwen3-0.6B model can be downloaded from the following website: https://modelscop
 We use MedCorp as the external document library of the RAG system, where the original text data comes from four different sources, including the biomedical abstract text set PubMed, the clinical decision support text set StatPearls, the medical textbook text set Textbooks of domain specific knowledge, and the general knowledge text set Wikipedia.
 MedCorp is available at: https://github.com/gzxiong/MedRAG.
 
-# Usage
+# Implementation
 
 ## Generate Passage Embeddings
 Use generate_passage_embeddings.py to preprocess the texts in MedCorp and generate semantic embedding vectors for each text chunk. After this preprocessing step, the retriever can perform searches by comparing the similarity between the user's query and these semantic vectors.
