@@ -8,7 +8,7 @@ EVT-Rank is developed based on the Python platform. The following table lists th
 
 | Lib | Version |
 | :--------: | :------: |
-| PyTorch   | 2.10.0+cu12.8 |
+| PyTorch   | 2.10.0 |
 | Transformers | 5.6.2 |
 | Pandas	 | 2.3.3 |
 | SciPy	 | 1.15.3 |
@@ -31,4 +31,16 @@ Qwen3-0.6B model can be downloaded from the following website: https://modelscop
 We use MedCorp as the external document library of the RAG system, where the original text data comes from four different sources, including the biomedical abstract text set PubMed, the clinical decision support text set StatPearls, the medical textbook text set Textbooks of domain specific knowledge, and the general knowledge text set Wikipedia.
 MedCorp is available at: https://github.com/gzxiong/MedRAG.
 
+# Usage
 
+## Generate Passage Embeddings
+Use generate_passage_embeddings.py to preprocess the texts in MedCorp and generate semantic embedding vectors for each text chunk. After this preprocessing step, the retriever can perform searches by comparing the similarity between the user's query and these semantic vectors.
+
+## Mean vector
+mean_vector.py computes the mean of all semantic vectors in the external corpus. This mean vector represents the semantic center of the corpus; a lower semantic similarity to this mean vector indicates that the knowledge is more outlier-like or rare.
+
+## Long-tail Mapping
+Use longtail_mapping.py to map the semantic vectors of the texts into numerical values that reflect the scarcity of knowledge. A higher value indicates that the text involves more scarce (or long-tail) knowledge.
+
+## EVT check
+EVT_check evaluates whether the mapped numerical sequence is suitable for Extreme Value Theory (EVT). It primarily includes stationarity testing, block maxima processing, and an extremal independence test. When the KPSS statistic is less than 0.74 and the Berman statistic is less than 0.2, the numerical sequence is considered applicable to EVT.
