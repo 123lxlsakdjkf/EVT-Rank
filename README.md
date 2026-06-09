@@ -1,6 +1,23 @@
 # EVT-Rank: Extreme-Value Tail Weighting fo Long-Tail Retrieval-Augmented Generation
 EVT-Rank is a method of reranking RAG documents based on extreme value theory. Compared with the method of sorting documents using LLM, EVT-Rank has lower reordering delay, and can be deployed on the CPU side to avoid potential memory overflow on GPU.
 
+## Table of Contents
+- [Environment](#environment)
+  - [Hardware and Software](#hardware-and-software)
+  - [Library](#library)
+- [Datasets](#datasets)
+  - [QA Dataset](#qa-dataset)
+  - [Corpus for Retriever](#corpus-for-retriever)
+- [Retriever](#retriever)
+- [Downstream LLM](#downstream-llm)
+- [Implementation](#implementation)
+  - [1. Generate Passage Embeddings (`generate_passage_embeddings.py`)](#1-generate-passage-embeddings-generate_passage_embeddingspy)
+  - [2. Compute Corpus Mean Vector (`mean_vector.py`)](#2-compute-corpus-mean-vector-mean_vectorpy)
+  - [3. Long-tail Mapping (`longtail_mapping.py`)](#3-long-tail-mapping-longtail_mappingpy)
+  - [4. EVT Applicability Check (`EVT_check.py`)](#4-evt-applicability-check-evt_checkpy)
+
+---
+
 ## Environment
 We developed EVT-Rank using Python, utilizing version 3.10.12 for our implementation.
 
