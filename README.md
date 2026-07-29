@@ -1,4 +1,4 @@
-# EVT-Rank: Extreme-Value Tail Weighting fo Long-Tail Retrieval-Augmented Generation
+# EVT-Rank: Extreme-Value Tail Weighting for Long-Tail Retrieval-Augmented Generation
 EVT-Rank is a method of reranking RAG documents based on extreme value theory. Compared with the method of sorting documents using LLM, EVT-Rank has lower reordering delay, and can be deployed on the CPU side to avoid potential memory overflow on GPU.
 
 ## Table of Contents
